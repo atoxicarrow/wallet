@@ -159,33 +159,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A0A0B] text-[#F5F5F5] font-sans pb-28 selection:bg-[#2D5BFF] selection:text-white">
+    <div className="min-h-screen bg-[#0A0A0B] text-[#F5F5F5] font-sans pb-28 selection:bg-[#2D5BFF] selection:text-white pt-8">
       <Header 
         totalBalance={totalBalance} 
         onIncomeClick={() => setShowModal('income')} 
         onExpenseClick={() => setShowModal('expense')} 
       />
-
-      <div className="px-6 mt-8 flex overflow-x-auto gap-3 no-scrollbar pb-2">
-        {[
-          { id: 'wallets', label: 'Presupuestos', icon: <LayoutGrid size={14} /> },
-          { id: 'savings', label: 'Ahorros', icon: <PiggyBank size={14} /> },
-          { id: 'fixed', label: 'Fijos', icon: <RefreshCcw size={14} /> },
-          { id: 'history', label: 'Historial', icon: <Clock size={14} /> }
-        ].map((tab) => (
-          <button 
-            key={tab.id}
-            onClick={() => setActiveView(tab.id as ActiveView)}
-            className={`px-5 py-2.5 rounded-xl font-bold text-[10px] uppercase tracking-widest flex items-center gap-2 transition-all border ${
-              activeView === tab.id 
-                ? 'bg-[#2D5BFF] text-white border-[#2D5BFF] shadow-lg shadow-[#2D5BFF]/30' 
-                : 'bg-[#1C1C1E] text-[#F5F5F5]/40 border-white/5'
-            }`}
-          >
-            {tab.icon} {tab.label}
-          </button>
-        ))}
-      </div>
 
       <main className="px-6 mt-6">
         {activeView === 'wallets' && <WalletsView miniWallets={miniWallets} onNewWallet={() => setShowModal('new_wallet')} />}

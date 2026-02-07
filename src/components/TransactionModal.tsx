@@ -59,8 +59,8 @@ const TransactionModal: React.FC<TransactionModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-[#0A0A0B]/80 backdrop-blur-md p-4">
-      <div className="bg-[#1C1C1E] w-full max-w-md rounded-[3rem] p-10 shadow-2xl border border-white/10 animate-in slide-in-from-bottom duration-300">
+    <div className="fixed inset-0 z-50 flex items-start justify-center bg-[#0A0A0B]/80 backdrop-blur-md p-4 overflow-y-auto">
+      <div className="bg-[#1C1C1E] w-full max-w-md rounded-[3rem] p-10 shadow-2xl border border-white/10 animate-in slide-in-from-bottom duration-300 my-8">
         <div className="flex justify-between items-center mb-8">
           <h3 className="text-2xl font-black tracking-tighter text-[#F5F5F5]">
             {renderTitle()}

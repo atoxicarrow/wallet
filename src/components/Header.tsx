@@ -9,6 +9,8 @@ type HeaderProps = {
 };
 
 const Header: React.FC<HeaderProps> = ({ totalBalance, onIncomeClick, onExpenseClick }) => {
+  const isNegative = totalBalance < 0;
+
   return (
     <div className="sticky top-0 z-30 bg-[#1C1C1E] p-6 rounded-b-[2.5rem] shadow-2xl border-b border-white/5">
       <div className="flex justify-between items-center mb-4">
@@ -18,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({ totalBalance, onIncomeClick, onExpenseC
           <span className="text-[10px] font-bold text-[#2D5BFF] uppercase tracking-wider">Sistema Activo</span>
         </div>
       </div>
-      <h1 className="text-5xl font-black mb-8 tracking-tighter text-[#2D5BFF]">
+      <h1 className={`text-5xl font-black mb-8 tracking-tighter ${isNegative ? 'text-[#FF3B30]' : 'text-[#2D5BFF]'}`}>
         {formatCurrency(totalBalance)}
       </h1>
       

@@ -19,29 +19,32 @@ const WalletsView: React.FC<WalletsViewProps> = ({ miniWallets, onNewWallet }) =
       </div>
       {miniWallets.map(wallet => {
         const remaining = wallet.allocated - wallet.spent;
-        const percent = Math.min((wallet.spent / wallet.allocated) * 100, 100);
+        const percent = wallet.allocated > 0 ? Math.min((wallet.spent / wallet.allocated) * 100, 100) : 0;
         const isDanger = percent >= 90;
+        const isNegative = remaining < 0;
 
         return (
           <div key={wallet.id} className="bg-[#1C1C1E] p-5 rounded-3xl border border-white/5 shadow-xl">
             <div className="flex justify-between items-center mb-4">
               <span className="font-bold text-[#F5F5F5] text-sm flex items-center gap-3">
-                <div className={`w-1.5 h-6 rounded-full ${isDanger ? 'bg-[#FF3B30]' : 'bg-[#2D5BFF]'}`}></div>
+                <div className={`w-1.5 h-6 rounded-full ${isNegative ? 'bg-[#FF3B30]' : (isDanger ? 'bg-[#FF9F0A]' : 'bg-[#2D5BFF]')}`}></div>
                 {wallet.name}
               </span>
               <div className="text-right">
-                <p className={`text-lg font-black ${isDanger ? 'text-[#FF3B30]' : 'text-[#F5F5F5]'}`}>
+                <p className={`text-lg font-black ${isNegative ? 'text-[#FF3B30]' : 'text-[#F5F5F5]'}`}>
                   {formatCurrency(remaining)}
                 </p>
                 <p className="text-[9px] text-[#F5F5F5]/30 uppercase font-bold tracking-tighter">Disponible</p>
               </div>
             </div>
-            <div className="w-full h-1 bg-[#0A0A0B] rounded-full overflow-hidden">
-              <div 
-                className={`h-full transition-all duration-1000 ${isDanger ? 'bg-[#FF3B30]' : 'bg-[#2D5BFF]'}`} 
-                style={{ width: `${percent}%` }}
-              ></div>
-            </div>
+            {wallet.allocated > 0 && (
+              <div className="w-full h-1 bg-[#0A0A0B] rounded-full overflow-hidden">
+                <div 
+                  className={`h-full transition-all duration-1000 ${isNegative ? 'bg-[#FF3B30]' : (isDanger ? 'bg-[#FF9F0A]' : 'bg-[#2D5BFF]')}`} 
+                  style={{ width: `${isNegative ? 100 : percent}%` }}
+                ></div>
+              </div>
+            )}
           </div>
         );
       })}
