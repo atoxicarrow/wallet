@@ -1,6 +1,7 @@
 import React from 'react';
 import { AlertCircle, RefreshCcw, Trash2 } from 'lucide-react';
-import { FixedExpense, MiniWallet } from '../types';
+import type { FixedExpense, MiniWallet } from '../types';
+import { formatCurrency } from '../lib/currency';
 
 type FixedExpensesViewProps = {
   fixedExpenses: FixedExpense[];
@@ -13,14 +14,7 @@ const FixedExpensesView: React.FC<FixedExpensesViewProps> = ({ fixedExpenses, mi
   return (
     <div className="space-y-4 animate-in slide-in-from-left-4 duration-300">
       <h2 className="font-black text-[#F5F5F5]/30 uppercase text-[10px] tracking-widest px-1">Suscripciones Fijas</h2>
-      <div className="bg-[#2D5BFF]/10 p-5 rounded-3xl border border-[#2D5BFF]/20 mb-6">
-        <div className="flex gap-3">
-          <AlertCircle className="text-[#2D5BFF] shrink-0" size={20} />
-          <p className="text-[11px] text-[#F5F5F5]/70 leading-relaxed font-bold uppercase tracking-tight">
-            Las suscripciones se descuentan automáticamente al inicio de cada ciclo mensual.
-          </p>
-        </div>
-      </div>
+
       {fixedExpenses.map(fe => (
         <div key={fe.id} className="bg-[#1C1C1E] p-5 rounded-3xl border border-white/5 flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -35,7 +29,7 @@ const FixedExpensesView: React.FC<FixedExpensesViewProps> = ({ fixedExpenses, mi
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <span className="font-black text-[#F5F5F5]">${fe.amount}</span>
+            <span className="font-black text-[#F5F5F5]">{formatCurrency(fe.amount)}</span>
             <button onClick={() => deleteFixed(fe.id)} className="text-[#F5F5F5]/20 hover:text-[#FF3B30] p-1 transition-colors">
               <Trash2 size={18} />
             </button>

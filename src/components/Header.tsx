@@ -1,5 +1,6 @@
 import React from 'react';
 import { Plus, Minus } from 'lucide-react';
+import { formatCurrency } from '../lib/currency';
 
 type HeaderProps = {
   totalBalance: number;
@@ -18,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ totalBalance, onIncomeClick, onExpenseC
         </div>
       </div>
       <h1 className="text-5xl font-black mb-8 tracking-tighter text-[#2D5BFF]">
-        ${totalBalance.toLocaleString()}
+        {formatCurrency(totalBalance)}
       </h1>
       
       <div className="flex gap-4">

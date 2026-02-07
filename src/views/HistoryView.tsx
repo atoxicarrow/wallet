@@ -1,6 +1,7 @@
 import React from 'react';
 import { TrendingUp, TrendingDown, PiggyBank } from 'lucide-react';
-import { Transaction } from '../types';
+import type { Transaction } from '../types';
+import { formatCurrency } from '../lib/currency';
 
 type HistoryViewProps = {
   transactions: Transaction[];
@@ -28,7 +29,7 @@ const HistoryView: React.FC<HistoryViewProps> = ({ transactions }) => {
               </div>
             </div>
             <p className={`font-black text-md ${tx.type === 'income' ? 'text-[#34C759]' : 'text-[#F5F5F5]'}`}>
-              {tx.type === 'income' ? '+' : '-'}${tx.amount.toLocaleString()}
+              {tx.type === 'income' ? '+' : '-'}{formatCurrency(tx.amount)}
             </p>
           </div>
         ))}

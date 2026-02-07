@@ -1,6 +1,7 @@
 import React from 'react';
 import { PlusCircle } from 'lucide-react';
-import { MiniWallet } from '../types';
+import type { MiniWallet } from '../types';
+import { formatCurrency } from '../lib/currency';
 
 type WalletsViewProps = {
   miniWallets: MiniWallet[];
@@ -30,7 +31,7 @@ const WalletsView: React.FC<WalletsViewProps> = ({ miniWallets, onNewWallet }) =
               </span>
               <div className="text-right">
                 <p className={`text-lg font-black ${isDanger ? 'text-[#FF3B30]' : 'text-[#F5F5F5]'}`}>
-                  ${remaining.toLocaleString()}
+                  {formatCurrency(remaining)}
                 </p>
                 <p className="text-[9px] text-[#F5F5F5]/30 uppercase font-bold tracking-tighter">Disponible</p>
               </div>
