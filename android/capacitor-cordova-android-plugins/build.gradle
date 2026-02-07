@@ -54,6 +54,9 @@ dependencies {
 apply from: "cordova.variables.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
+if (!project.hasProperty('cdvPluginPostBuildExtras')) {
+    ext.cdvPluginPostBuildExtras = []
+}
 for (def func : cdvPluginPostBuildExtras) {
     func()
 }
