@@ -21,7 +21,7 @@ out/
 
 # Gradle files
 .gradle/
-build/
+#build/
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -73,7 +73,7 @@ freeline_project_description.json
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
-fastlane/test_output
+#fastlane/test_output
 fastlane/readme.md
 
 # Version control
@@ -82,7 +82,7 @@ vcs.xml
 # lint
 lint/intermediates/
 lint/generated/
-lint/outputs/
+#lint/outputs/
 lint/tmp/
 # lint/reports/
 

@@ -1,0 +1,3 @@
+com.walletavo.app.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme
