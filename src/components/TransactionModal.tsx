@@ -84,7 +84,7 @@ const TransactionModal: React.FC<TransactionModalProps> = ({
             </>
           ) : showModal === 'new_fixed' ? (
             <>
-              <Input label="NOMBRE DEL GASTO" placeholder="Ej. Netflix" value={fixedForm.name} onChange={v => setFixedForm({ ...fixedForm, name: v })} />
+              <Input label="NOMBRE DEL GASTO" placeholder="Ej. Luz" value={fixedForm.name} onChange={v => setFixedForm({ ...fixedForm, name: v })} />
               <Input label="MONTO MENSUAL (CLP)" placeholder="10000" type="number" value={fixedForm.amount} onChange={v => setFixedForm({ ...fixedForm, amount: v })} />
               <Select label="ASIGNAR A MINI-WALLET" value={fixedForm.walletId} onChange={v => setFixedForm({ ...fixedForm, walletId: v })} options={miniWallets} />
             </>
