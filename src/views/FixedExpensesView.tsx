@@ -13,7 +13,7 @@ type FixedExpensesViewProps = {
 const FixedExpensesView: React.FC<FixedExpensesViewProps> = ({ fixedExpenses, miniWallets, onNewFixedExpense, deleteFixed }) => {
   return (
     <div className="space-y-4 animate-in slide-in-from-left-4 duration-300">
-      <h2 className="font-black text-[#F5F5F5]/30 uppercase text-[10px] tracking-widest px-1">Suscripciones Fijas</h2>
+      <h2 className="font-black text-[#F5F5F5]/30 uppercase text-[10px] tracking-widest px-1">Fijas</h2>
 
       {fixedExpenses.map(fe => (
         <div key={fe.id} className="bg-[#1C1C1E] p-5 rounded-3xl border border-white/5 flex items-center justify-between">

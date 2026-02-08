@@ -159,7 +159,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A0A0B] text-[#F5F5F5] font-sans pb-28 selection:bg-[#2D5BFF] selection:text-white pt-8">
+    <div className="min-h-screen bg-[#0A0A0B] text-[#F5F5F5] font-sans pb-28 selection:bg-[#2D5BFF] selection:text-white">
       <Header 
         totalBalance={totalBalance} 
         onIncomeClick={() => setShowModal('income')} 

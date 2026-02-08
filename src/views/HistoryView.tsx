@@ -10,7 +10,7 @@ type HistoryViewProps = {
 const HistoryView: React.FC<HistoryViewProps> = ({ transactions }) => {
   return (
     <div className="space-y-4 animate-in fade-in duration-300">
-      <h2 className="font-black text-[#F5F5F5]/30 uppercase text-[10px] tracking-widest px-1">Registros de Actividad</h2>
+      <h2 className="font-black text-[#F5F5F5]/30 uppercase text-[10px] tracking-widest px-1">Historial</h2>
       <div className="space-y-2">
         {transactions.map(tx => (
           <div key={tx.id} className="bg-[#1C1C1E] p-4 rounded-2xl border border-white/5 flex items-center justify-between">
